@@ -234,7 +234,7 @@ do
         FONT_SIZE_NORMAL = core:Scale(core.profile.font_size_normal)
         FONT_SIZE_SMALL = core:Scale(core.profile.font_size_small)
 
-        BAR_SPARK = core.profile.bar_spark
+        BAR_SPARK = false
     end
     local function p2()
         FADE_UNTRACKED = core.profile.fade_untracked
@@ -1337,7 +1337,7 @@ do
     end
 
     function core:CreateCastBar(f)
-        local castbar = CreateStatusBar(f,BAR_SPARK,nil,true,1)
+        local castbar = CreateStatusBar(f,true,nil,true,1)
         castbar:Hide()
 
         local bg = castbar:CreateTexture(nil,'BACKGROUND',nil,1)
