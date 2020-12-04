@@ -388,10 +388,15 @@ end
 local function AuraFrame_GetAuras(self)
     for i=1,40 do
         -- nps_ = NamePlateShow...
-        local name,icon,count,_,duration,expiration,caster,can_purge,
+        local name,icon,count,debuffType,duration,expiration,caster,can_purge,
               nps_own,spellid,_,_,_,nps_all =
               UnitAura(self.parent.unit,i,self.filter)
 
+        --PeatsCode
+		if debuffType == "Magic" then
+			can_purge = true
+		end
+        
         if not name then break end
         if name and spellid and
            self:ShouldShowAura(spellid,name,duration,caster,can_purge,nps_own,nps_all,i)
